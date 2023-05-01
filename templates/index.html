@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+
+			
+
+			
+{% block content %}
+<div class="main-sc">
+			  	
+			  	 <h1 class="sect-title icon-r">Kinolama — фильмы и сериалы</h1>
+			  	 <div class="soc-m">
+			  		   
+    <div class="ya-share2 ya-share2_inited"><div class="ya-share2__container ya-share2__container_size_m ya-share2__container_color-scheme_normal ya-share2__container_shape_normal"><ul class="ya-share2__list ya-share2__list_direction_horizontal"><li class="ya-share2__item ya-share2__item_service_vkontakte"><a class="ya-share2__link" href="https://vk.com/kinolamatv" rel="nofollow noopener" target="_blank" title="ВКонтакте"><span class="ya-share2__badge"><span class="ya-share2__icon"></span></span>
+      <img width="24" height="24" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/VK_Compact_Logo_%282021-present%29.svg/1024px-VK_Compact_Logo_%282021-present%29.svg.png">
+<!--       <span class="ya-share2__title">ВКонтакте</span> -->
+    </a></li>
+
+      
+
+      <li class="ya-share2__item ya-share2__item_service_telegram"><a class="ya-share2__link" href="https://t.me/kinolamabot" rel="nofollow noopener" target="_blank" title="Telegram"><span class="ya-share2__badge"><span class="ya-share2__icon"></span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Telegram_Messenger.png/800px-Telegram_Messenger.png" height="24" width="24">
+<!--                 <span class="ya-share2__title">Telegram</span> -->
+      </a></li></ul></div></div>
+			  	</div>
+				
+                  
+                      <p>Kinolama представляет к просмотру все бесплатные фильмы и сериалы. Именно из этого по миру распространились оригинальные фильмы и сериалы развлекательного характера. Бренд сразу взял ориентир на массовость и доступность потокового видео.</p>
+                  
+                  <br>
+			  </div>
+
+
+
+<div class="sect sect-slides sect-video">
+				<div class="sect-header fx-row fx-middle">
+					<div class="sect-title icon-r"><h2>Комедии</h2><span class="fa">&#127865;</span></div>
+				</div>
+          <div class="carousel" data-flickity='{ "prevNextButtons": false, "pageDots": false, "lazyLoad": 2, "freeScroll": true,
+"wrapAround": true, "autoPlay": 3400, "percentPosition": false, "imagesLoaded": false }' style="margin-bottom: 50px;">
+  {% for content in comedies %}
+    <div class="carousel-cell">
+      <a href="{{ url_for('view_content', kp_id=content.get('kinopoisk_id')) }}">
+      <div class="th-series">{{ content.get('info').get('year') }}</div>
+      <img style="border-radius: 10px;" class="carousel-cell-image"
+      data-flickity-lazyload="{{ content.get('info').get('poster') }}" alt="{{ content.get('info').get('rus') }}" />
+        <div class="vi-desc" style="background:linear-gradient(#a1a1a13b, #000000)">
+        <div class="vi-title" >{{ content.get('info').get('rus') }}</div>
+        
+      </div>
+      </a>
+  </div>
+  {% endfor %}
+</div>
+				<div class="sect-items owl-carousel owl-new owl-loaded owl-drag">
+            
+                    
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1190px;"><div class="owl-item active" style="width: 1170px; margin-right: 20px;"><div class="new-group fx-row">
+</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots disabled"></div></div>
+			</div>
+
+
+
+
+
+			<div class="sect sect-slides sect-video">
+				<div class="sect-header fx-row fx-middle">
+					<div class="sect-title icon-r"><h2>Новинки этого года</h2><span class="fa">&#128240;</span></div>
+				</div>
+          <div class="carousel" data-flickity='{ "prevNextButtons": false, "pageDots": false, "lazyLoad": 2, "freeScroll": true,
+"wrapAround": true, "autoPlay": 3400, "percentPosition": false, "imagesLoaded": false }' style="margin-bottom: 50px;">
+  {% for content in _2023 %}
+    <div class="carousel-cell">
+      <a href="{{ url_for('view_content', kp_id=content.get('kinopoisk_id')) }}">
+      <div class="th-series">{{ content.get('info').get('year') }}</div>
+      <img style="border-radius: 10px;" class="carousel-cell-image"
+      data-flickity-lazyload="{{ content.get('info').get('poster') }}" alt="{{ content.get('info').get('rus') }}" />
+        <div class="vi-desc" style="background:linear-gradient(#a1a1a13b, #000000)">
+        <div class="vi-title" >{{ content.get('info').get('rus') }}</div>
+        
+      </div>
+      </a>
+  </div>
+  {% endfor %}
+</div>
+				<div class="sect-items owl-carousel owl-new owl-loaded owl-drag">
+            
+                    
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1190px;"><div class="owl-item active" style="width: 1170px; margin-right: 20px;"><div class="new-group fx-row">
+</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots disabled"></div></div>
+			</div>
+
+
+
+
+<div class="sect sect-slides sect-video">
+             <div class="sect-header fx-row fx-middle">
+					<div class="sect-title icon-r"><h2>Фильмы</h2> <span class="fa">&#128250;</span></div>
+  <div class="spec-new">
+<a href="{{ url_for('view_cat_page', cat='криминал', type='film') }}" class="sect-link">Криминал</a>
+<a href="{{ url_for('view_cat_page', cat='комедия', type='film') }}" class="sect-link">Комедии</a>
+<a href="{{ url_for('view_cat_page', cat='драма', type='film') }}" class="sect-link">Драмы</a>
+<a href="{{ url_for('view_cat_page', cat='ужасы', type='film') }}" class="sect-link">Ужасы</a>
+<!-- <a href="#" class="sect-link">2022</a>
+<a href="#" class="sect-link">для подростков</a>
+<a href="#" class="sect-link">про любовь</a>
+<a href="#" class="sect-link">про школу</a>
+<a href="#" class="sect-link">документальные</a>
+<a href="#" class="sect-link">комедии</a>
+<a href="#" class="sect-link">ужасы</a>
+<a href="#" class="sect-link">боевики</a>
+<a href="#" class="sect-link">мелодрамы и драмы</a>
+<a href="#" class="sect-link">фантастика</a> -->
+
+	                                         					</div>
+				</div>
+  <!-- Flickity HTML init -->
+<!-- <div class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true, "autoPlay": true }' style="margin-bottom: 50px; height:375px">
+  {% for film in film_contents[:5] %}
+  <div class="gallery-cell" width="376" height="375.59">
+    <a href="{{ url_for('view_content', kp_id=film.get('kinopoisk_id')) }}">
+      <img src="{{ film.get('info').get('poster') }}" alt="{{ film.get('info').get('rus') }}">
+    </a>
+  </div>
+  {% endfor %}
+</div> -->
+<div class="carousel" data-flickity='{ "prevNextButtons": false, "pageDots": false,  "lazyLoad": 2, "freeScroll": true,
+"wrapAround": true, "autoPlay": true, "percentPosition": false, "imagesLoaded": false }' style="margin-bottom: 50px;">
+  {% for film in film_contents %}
+    <div class="carousel-cell">
+      <a href="{{ url_for('view_content', kp_id=film.get('kinopoisk_id')) }}">
+      <div class="th-series">{{ film.get('info').get('year') }}</div>
+      <img style="border-radius: 10px;" class="carousel-cell-image"
+      data-flickity-lazyload="{{ film.get('info').get('poster') }}" alt="{{ film.get('info').get('rus') }}" />
+        <div class="vi-desc" style="background:linear-gradient(#a1a1a13b, #000000)">
+        <div class="vi-title" >{{ film.get('info').get('rus') }}</div>
+        
+      </div>
+      </a>
+  </div>
+  {% endfor %}
+</div>
+        <div class="sect-items owl-carousel owl-new owl-loaded owl-drag">
+            
+                    
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1190px;"><div class="owl-item active" style="width: 1170px; margin-right: 20px;"><div class="new-group fx-row">
+          
+<!-- {% for film in film_contents %}
+<div class="video-item with-mask new-item">
+  <div class="vi-in" >
+    <a class="vi-img img-resp-h" href="{{ url_for('view_content', kp_id=film.get('kinopoisk_id')) }}" title="Смотреть {{ film.get('info').get('rus') }}" >
+      <div class="th-series">{{ film.get('info').get('year') }}</div>
+      <img width="376" height="375.59" class="" src="{{ film.get('info').get('poster') }}" data-src="{{ film.get('info').get('poster') }}" alt="{{ film.get('info').get('rus') }}" >
+      <div class="vi-desc" >
+        <div class="vi-title">{{ film.get('info').get('rus') }}</div>
+        
+      </div>
+      <div class="th-mask fx-col fx-center fx-middle">
+        <span class="fa">&#9654;</span>
+      </div>
+      
+      <div class="th-inf icon-l" data-source="{{ url_for('view_content', kp_id=film.get('kinopoisk_id')) }}"><span class="fa" data-tooltip="Temp">&#8505;</span></div>
+    </a>
+  </div>
+</div>
+{% endfor %} -->
+</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots disabled"></div></div>
+			
+<div class="sect sect-slides sect-new sect-wide">
+<div class="sect-header fx-row fx-middle">
+<div class="sect-title icon-r"><h2>Сериалы</h2> <span class="fa">&#127909;</span></div>
+<div class="spec-new">
+<a href="{{ url_for('view_cat_page', cat='криминал', type='serial') }}" class="sect-link">Криминал</a>
+<a href="{{ url_for('view_cat_page', cat='комедия', type='serial') }}" class="sect-link">Комедии</a>
+<a href="{{ url_for('view_cat_page', cat='драма', type='serial') }}" class="sect-link">Драмы</a>
+<a href="{{ url_for('view_cat_page', cat='ужасы', type='serial') }}" class="sect-link">Ужасы</a>
+                       					</div>
+				</div>
+  <div class="carousel" data-flickity='{ "prevNextButtons": false, "pageDots": false,  "lazyLoad": 2, "freeScroll": true,
+"wrapAround": true, "autoPlay": 3200, "percentPosition": false, "imagesLoaded": false }' style="margin-bottom: 50px;">
+  {% for serial in serial_contents %}
+    <div class="carousel-cell">
+      <a href="{{ url_for('view_content', kp_id=serial.get('kinopoisk_id')) }}">
+      <div class="th-series">{{ serial.get('info').get('year') }}</div>
+      <img style="border-radius: 10px;" class="carousel-cell-image"
+      data-flickity-lazyload="{{ serial.get('info').get('poster') }}" alt="{{ serial.get('info').get('rus') }}" />
+        <div class="vi-desc" style="background:linear-gradient(#a1a1a13b, #000000)">
+        <div class="vi-title" >{{ serial.get('info').get('rus') }}</div>
+        
+      </div>
+      </a>
+  </div>
+  {% endfor %}
+</div>
+				<div class="sect-items owl-carousel owl-new owl-loaded owl-drag">
+						
+                    
+				<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1190px;"><div class="owl-item active" style="width: 1170px; margin-right: 20px;"><div class="new-group fx-row">
+<!-- {% for serial in serial_contents %}
+<div class="video-item with-mask new-item">
+	<div class="vi-in">
+		<a class="vi-img img-resp-h" href="{{ url_for('view_content', kp_id=serial.get('kinopoisk_id')) }}" title="Смотреть {{ serial.get('info').get('rus') }}">
+                        <div class="new">новые серии</div>
+      <div class="th-series">{{ serial.get('info').get('year') }}</div>
+			<img width="376" height="375.59" class="" src="{{ serial.get('info').get('poster') }}" data-src="{{ serial.get('info').get('poster') }}" alt="Скорая: Нью-Йорк">
+			<div class="vi-desc">
+				<div class="vi-title">{{ serial.get('info').get('rus') }}</div>
+				
+			</div>
+			<div class="th-mask fx-col fx-center fx-middle">
+				<span class="fa">&#9654;</span>
+			</div>
+			
+			<div class="th-inf icon-l" data-source="{{ url_for('view_content', kp_id=serial.get('kinopoisk_id')) }}"><span class="fa">&#8505;</span></div>
+		</a>
+	</div>
+</div>
+{% endfor %} -->
+</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots disabled"></div></div>
+			</div>
+		
+			
+			<div class="sect sect-slides sect-video">
+				<div class="sect-header fx-row fx-middle">
+					<div class="sect-title icon-r"><h2>Мультфильмы</h2> <span class="fa">&#127752;</span></div>
+					<div class="spec-new">
+            <a href="{{ url_for('view_cat_page', cat='мультфильм, приключения', type='all') }}" class="sect-link">Приключения</a>
+            <a href="{{ url_for('view_cat_page', cat='мультфильм, комедия', type='all') }}" class="sect-link">Комедии</a>
+            <a href="{{ url_for('view_cat_page', cat='мультфильм, драма', type='all') }}" class="sect-link">Драмы</a>
+            <a href="{{ url_for('view_cat_page', cat='мультфильм, ужасы', type='all') }}" class="sect-link">Ужасы</a>
+                    </div>
+				</div>
+          <div class="carousel" data-flickity='{ "prevNextButtons": false, "pageDots": false,  "lazyLoad": 2, "freeScroll": true,
+"wrapAround": true, "autoPlay": 3400, "percentPosition": false, "imagesLoaded": false }' style="margin-bottom: 50px;">
+  {% for mults in mults_contents %}
+    <div class="carousel-cell">
+      <a href="{{ url_for('view_content', kp_id=mults.get('kinopoisk_id')) }}">
+      <div class="th-series">{{ mults.get('info').get('year') }}</div>
+      <img style="border-radius: 10px;" class="carousel-cell-image"
+      data-flickity-lazyload="{{ mults.get('info').get('poster') }}" alt="{{ mults.get('info').get('rus') }}" />
+        <div class="vi-desc" style="background:linear-gradient(#a1a1a13b, #000000)">
+        <div class="vi-title" >{{ mults.get('info').get('rus') }}</div>
+        
+      </div>
+      </a>
+  </div>
+  {% endfor %}
+</div>
+				<div class="sect-items owl-carousel owl-new owl-loaded owl-drag">
+            
+                    
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1190px;"><div class="owl-item active" style="width: 1170px; margin-right: 20px;"><div class="new-group fx-row">
+<!-- {% for mults in mults_contents %}
+<div class="video-item with-mask new-item">
+  <div class="vi-in">
+    <a class="vi-img img-resp-h" href="{{ url_for('view_content', kp_id=mults.get('kinopoisk_id')) }}" title="Смотреть {{ mults.get('info').get('rus') }}">
+      <div class="th-series">{{ mults.get('info').get('year') }}</div>
+      <img width="376" height="375.59" class="" src="{{ mults.get('info').get('poster') }}" data-src="{{ mults.get('info').get('poster') }}" alt="Скорая: Нью-Йорк">
+      <div class="vi-desc">
+        <div class="vi-title">{{ mults.get('info').get('rus') }}</div>
+        
+      </div>
+      <div class="th-mask fx-col fx-center fx-middle">
+        <span class="fa">&#9654;</span>
+      </div>
+      
+      <div class="th-inf icon-l" data-source="{{ url_for('view_content', kp_id=mults.get('kinopoisk_id')) }}"><span class="fa">&#8505;</span></div>
+    </a>
+  </div>
+</div>
+{% endfor %} -->
+</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots disabled"></div></div>
+			</div>
+
+			
+			
+
+			
+
+			
+
+			
+
+			
+
+<div class="site-desc">
+				<div class="site-desc-in wrap-center">
+<!--                     <p>Причина триумфа Kinolama очевидна: она одной из первых внедряет всевозможные тренды киноиндустрии. То, что актуально в конкретный отрезок времени, сразу воплощается в реальность. Это правило касается как технических возможностей распространения фильмов и сериалов, так и съемок того контента, который наиболее актуален. Например, во времена особой любви народа к видеодискам, можно было неоднократно смотреть любимые произведения именно на таком носителе. В наши дни для максимального охвата целевой аудитории есть только один способ – это трансляция в режиме онлайн. Поэтому все без исключения показы можно найти в этом универсальном формате.</p> -->
+
+<p>Основная деятельность киноиндустрии сосредоточена на производстве фильмов и сериалов. Конечно, это не дешевое удовольствие, зато позволяет полностью контролировать процесс создания продуктов в соответствии со своими ценностями и приоритетами. Для зрителей такая позиция удобна тем, что гарантирует качество досуга, проведенного за просмотром. Поэтому Kinolama обещает приятные эмоции.</p>
+                    <br>
+                    <h2>Смотреть все фильмы и сериалы на сайте Kinolama!</h2>
+
+<p>Кинематограф занимает важное место в современной жизни. Сегодня кино достигло пика своей популярности и имеет большую образовательную и эстетическую силу. Каждый день непрерывно идут съемки.</p>
+<p>С появлением цифровых технологий кино усовершенствовалось еще больше. Режиссеры начали использовать компьютерную графику и различные спецэффекты. Технология 3D перевернула представление о кино, фантазия стала похожа на реальность. В современном мире кино обладает большой силой, влияет на сознание человека и его мировоззрение. Кино использую для обучающих целей, к примеру, документальные и исторические фильмы несут в себе полезную информацию о мире, передают накопившиеся знания доступным языком.
+  Неудивительно, что накопилась уже внушительная коллекция фильмов и сериалов на русском языке.</p>
+                    <br>
+                    <h3>Kinolama позволяет вам смотреть творения киноиндустрии бесплатно</h3>
+<!-- <p>Оценивая то, какова значимость роли кино в жизни человека, конечно же, стоит поразмыслить о будущем. Завтрашнее общество — это сегодняшняя молодежь, а значит ее перспективное развитие в этой связи первостепенно важно. То, что несут в себе современные и классические фильмы, какие качества они прививают молодому поколению, и есть влияние киноискусства на человечество. Фильмы — это, можно сказать, книги, прочитанные режиссером, которые он снял на пленку, отобразив их в своем собственном воображении и видении.</p> -->
+
+                    </div>
+			</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" type="text/css" rel="stylesheet"> -->
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

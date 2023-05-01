@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block title %}Поиск{% endblock %}
+
+
+
+{% block content %}		
+
+
+			<div class="pages-bg">
+
+			<div class="speedbar nowrap"><span itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><meta itemprop="position" content="1"><a href="{{ url_for('index') }}" itemprop="item"><span itemprop="name">Главная</span></a></span> » Поиск по сайту</span>
+</div>
+
+			<div id="dle-content">
+<!-- <input type="hidden" name="do" id="do" value="search">
+<input type="hidden" name="subaction" id="subaction" value="search">
+<input type="hidden" name="search_start" id="search_start" value="0">
+<input type="hidden" name="full_search" id="full_search" value="0">
+<input type="hidden" name="result_from" id="result_from" value="1"> -->
+<div class="search-page">
+	<header class="sub-title"><h1>Поиск по сайту</h1></header>
+	<div class="searchtable" id="searchtable" name="searchtable"><table style="width:100%;">
+  <tbody><tr>
+    <td class="search">
+      <div style="margin:10px;">
+        <form action="/search" method="GET"> 
+                <input type="text" name="q" id="searchinput" value="{{ q if q }}" class="textin" style="width:250px"><br><br>
+                <input type="submit" class="bbcodes" value="Начать поиск">
+            </div>
+        </form>
+
+        </td>
+    </tr>
+</tbody></table>
+    <p></p>
+    <div style="margin: 0 10px;"><h3><b>Введите название или ID Кинопоиск</b></h3>
+      <p>  Например: Половое воспитание / Sex education / 1147693</p>
+    </div>
+<!-- <div style="margin: 0 10px;">Сейчас ищут: <a href="#" class="sect-link" style="display: inline-block;">#</a> 
+</div> -->
+</div>
+	
+</div>
+{% if results %} 
+  {% for result in results %}
+  <a class="sres-wrap clearfix" href="{{ url_for('view_content', kp_id=result.get('kinopoisk_id')) }}">
+    <div class="sres-img">
+      <div class="th-series">{{ result.get('info').get('year') }}</div>
+      <img style="border-radius: 10px;" src="{{ result.get('info').get('poster') }}" alt="{{ result.get('info').get('rus') }}">
+    </div>
+    <div class="sres-text">
+    <h2>{{ result.get('info').get('rus') }}</h2>
+    <div class="sres-desc">{{ result.get('info').get('description') }}</div>
+    </div>
+  </a>
+  {% endfor %}
+{% elif q %}
+  <a class="sres-wrap clearfix" href="#">
+    <div class="sres-img"><img src="https://static.vecteezy.com/system/resources/thumbnails/006/208/684/small/search-no-result-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg" alt="Ничего не найдено">
+    </div>
+    <div class="sres-text">
+    <h2>По вашему запросу ничего не найдено</h2>
+    <div class="sres-desc">Убедитесь в правильности написания запроса или попробуйте переформулировать его.</div>
+    </div>
+  </a>
+{% endif %}
+</div>	
+
+			</div>
+
+			
+
+			
+
+			
+{% endblock %}

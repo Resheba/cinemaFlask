@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>{% block title %}{% endblock %}</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width" /> 
+<meta name="description" content="Онлайн фильмы и сериалы на Kinolama!">
+<link rel="search" type="application/opensearchdescription+xml" href="" title="Kinolama — смотреть фильмы и сериалы">
+<link rel="canonical" href="{{ url_for('index') }}">
+<link rel="alternate" type="application/rss+xml" title="Kinolama — смотреть фильмы и сериалы" href="{{ url_for('index') }}">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<link rel="icon" href="{{ url_for('static', filename='kinolama-icon.png') }}" type="image/x-icon">
+<link href="{{ url_for('static', filename='styles.css') }}" type="text/css" rel="stylesheet">
+<link href="{{ url_for('static', filename='engine.css') }}" type="text/css" rel="stylesheet">
+<link href="{{ url_for('static', filename='carusel.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='carusel2.css') }}" type="text/css" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='kinolama-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='kinolama-icon.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='kinolama-icon.png') }}">
+<link rel="manifest" href="">
+  <script src="{{ url_for('static', filename='carusel.js') }}"></script>
+<meta name="msapplication-TileColor" content="#b91d47">
+<meta name="theme-color" content="#ffffff">
+<script src="{{ url_for('static', filename='js.js') }}" async=""></script></head>
+  
+
+
+
+<body class="js">
+
+
+
+<div class="wrap">
+
+
+
+  <header class="header clearfix">
+
+    <div class="header-in center fx-row fx-middle">
+
+      <a href="{{ url_for('index') }}" class="logo"><img style="padding: 1%" src="{{ url_for('static', filename='logo-4.png') }}" alt=""></a>
+
+      <ul class="hd-menu icon-l">
+    <li class="submenu">
+        <a href="{{ url_for('index') }}"><span class="fa">📺</span>Фильмы</a>
+        <!-- <div class="hidden-menu">
+            <ul class="hidden-ul visible">
+<li><a href="#">Новые фильмы</a></li>
+<li><a href="#">Лучшие фильмы 2020</a></li>
+<li><a href="#">Лучшие фильмы 2019</a></li>         
+<li><a href="#">Лучшие фильмы 2018</a></li>
+<li><a href="#">Для подростков</a></li>
+<li><a href="#">Про любовь</a></li>
+<li><a href="#">Про школу</a></li>
+<li><a href="#">Документальные</a></li>
+<li><a href="#">Ужасы</a></li>
+<li><a href="#">Боевики</a></li>
+<li><a href="#">Мелодрамы и драмы</a></li>
+<li><a href="#">Фантастика</a></li>
+<li><a href="#">Комедии</a></li>
+</ul>
+</div> -->
+</li>
+<li class="submenu">
+ <a href="{{ url_for('index') }}"><span class="fa">🎥</span>Сериалы</a>
+ <div class="hidden-menu">
+ <ul class="hidden-ul visible">
+<li><a href="#">Про любовь</a></li>
+<li><a href="#">Про школу</a></li>
+<li><a href="#">Для подростков</a></li>
+<li><a href="#">Детективные</a></li>
+<li><a href="#">Исторические</a></li>
+<li><a href="#">Комедийные</a></li>
+<li><a href="#">Ужасы</a></li>
+<li><a href="#">Фантастика</a></li>
+<li><a href="#">Фэнтези</a></li>
+<li><a href="#">Документальные</a></li>
+<li><a href="#">SKAM</a></li>
+</ul>
+ </div>
+</li>
+<li><a href="{{ url_for('index') }}"><span class="fa">🌈</span>Мультики</a></li> 
+
+</ul>
+
+        <div class="search-box" style="text-align:right;">
+          <a style="color: #FF6600" href="{{ url_for('view_search_page') }}">
+            <span class="fa"><img width="20" height="20" style="left:5px;" src="{{ url_for('static', filename='search.png') }}"></span>
+<!--             <span class="spc" 
+style="height:20; width: 20;" >Поиск</span> -->
+<!--             <span class="sps"> по сайту</span> -->
+          </a>
+        </div>
+
+      <ul class="ctrl-btns">
+
+        
+
+        <!--noindex-->
+
+
+<!-- <li>
+<a href="{{ url_for('index') }}" class="ctrl-login"><div class="ctrl-av img-box"><span class="fa fa-user" style="color: #FF6600;width: 100%;min-height: 100%;display: block;margin-top: 8px;"></span></div></a>
+<ul class="lb-menu icon-l">
+    <li><a href="{{ url_for('index') }}" class="js-login"><span class="fa fa-lock"></span>Войти</a></li>
+    <li><a href="{{ url_for('index') }}"><span class="fa fa-plus"></span>Регистрация</a></li>
+    <li><a href="{{ url_for('index') }}"><span class="fa fa-heart-o"></span>Мои закладки (<span id="l-fav">0</span>)</a></li>
+    <li>&nbsp;</li><li class="switch-theme"><a href="{{ url_for('index') }}" class="dark-theme"><span class="fa fa-moon-o"></span>Темная тема</a><a href="{{ url_for('index') }}" class="light-theme"><span class="fa fa-sun-o"></span>Светлая тема</a></li></ul>
+</li> -->
+  
+
+<!--/noindex-->
+
+      </ul>
+
+<!--       <div class="btn-menu"><span class="fa">&#9776;</span></div> -->
+
+    </div>
+
+  </header>
+
+  
+
+  <!-- END HEADER -->
+
+    
+
+  <div class="cont center">
+
+  
+<main class="main">
+{% block content %}{% endblock %}
+</main>    
+
+    <!-- END MAIN -->
+
+    
+
+    <footer class="footer fx-row">
+
+      <div class="ft-copyr">Kinolama - фильмы и сериалы</div>
+
+      <ul class="ft-menu">
+
+        <li><a href="{{ url_for('view_support') }}">Правообладателям</a></li>
+
+        
+
+      </ul>
+
+    </footer>
+
+  
+
+  <!-- END FOOTER -->
+
+  
+
+  </div>
+
+  
+
+
+
+</div>
+
+
+
+<!-- END WRAP -->
+
+
+
+
+<!-- 
+<link href="{{ url_for('static', filename='index.php') }}" rel="stylesheet" type="text/css">
+<script src="{{ url_for('static', filename='index(1).php') }}"></script>
+<script src="{{ url_for('static', filename='index(2).php') }}" defer=""></script>
+<script src="{{ url_for('static', filename='index(3).php') }}"></script>
+<script src="{{ url_for('static', filename='libs.js') }}"></script> -->
+
+  
+  <div id="switchtheme" class="switch-theme"><span class="fa">∮</span><span class="fa fa-sun-o light-theme"></span></div>
+<!-- <link href="{{ url_for('static', filename='styles(1).css') }}" type="text/css" rel="stylesheet"> -->
+
+
+    
+    
+
+<!-- <div id="vid_vpaut_div" style="display:inline-block;width:600px;height:320px" vid_vpaut_pl="10449"></div> -->
+<!--   <script type="text/javascript" src="{{ url_for('static', filename='vid_vpaut_script.js') }}" async=""></script>
+ -->
+
+
+
+
+
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable" tabindex="-1" style="display: none; outline: 0px; z-index: 1000;" role="dialog" aria-labelledby="ui-id-1"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-1" class="ui-dialog-title">Авторизация</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div class="login-box ui-dialog-content ui-widget-content" id="login-box" style="display: block;">
+    <form method="post">
+      <input type="text" name="login_name" id="login_name" placeholder="Ваш логин">
+      <input type="password" name="login_password" id="login_password" placeholder="Ваш пароль">
+      <button onclick="submit();" type="submit" title="Вход">Авторизация</button>
+      <input name="login" type="hidden" id="login" value="submit">
+      <div class="lb-check">
+        <input type="checkbox" name="login_not_save" id="login_not_save" value="1">
+        <label for="login_not_save">Не запоминать</label> 
+      </div>
+      <div class="lb-lnk fx-row">
+        <a href="#">Восстановить пароль</a>
+        <a href="#" class="log-register">Зарегистрироваться</a>
+      </div>
+    </form>
+  
+    
+    
+    
+    
+    
+    
+  
+  </div></div><div id="gotop"><span class="fa fa-chevron-up"></span></div><div class="close-overlay" id="close-overlay"></div><ul class="side-panel" id="side-panel"><li class="submenu">
+        <a href="#"><span class="fa fa-film"></span>Фильмы</a>
+        <div class="hidden-menu">
+            <ul class="hidden-ul visible">
+<li><a href="#">Новые фильмы</a></li>
+<li><a href="#">Лучшие фильмы 2020</a></li>
+<li><a href="#">Лучшие фильмы 2019</a></li>         
+<li><a href="#">Лучшие фильмы 2018</a></li>
+<li><a href="#">Для подростков</a></li>
+<li><a href="#">Про любовь</a></li>
+<li><a href="#">Про школу</a></li>
+<li><a href="#">Документальные</a></li>
+<li><a href="#">Ужасы</a></li>
+<li><a href="#">Боевики</a></li>
+<li><a href="#">Мелодрамы и драмы</a></li>
+<li><a href="#">Фантастика</a></li>
+<li><a href="#">Комедии</a></li>
+</ul>
+</div>
+</li>
+<li class="submenu">
+ <a href="#"><span class="fa fa-align-justify"></span>Сериалы</a>
+ <div class="hidden-menu">
+ <ul class="hidden-ul visible">
+<li><a href="#">Новые сериалы</a></li>
+<li><a href="#">Лучшие сериалы 2019 года</a></li>
+<li><a href="#">Лучшие сериалы 2018 года</a> </li>
+<li><a href="#">Про любовь</a></li>
+<li><a href="#">Про школу</a></li>
+<li><a href="#">Для подростков</a></li>
+<li><a href="#">Детективные</a></li>
+<li><a href="#">Исторические</a></li>
+<li><a href="#">Комедийные</a></li>
+<li><a href="#">Ужасы</a></li>
+<li><a href="#">Фантастика</a></li>
+<li><a href="#">Фэнтези</a></li>
+<li><a href="#">Документальные</a></li>
+<li><a href="#">SKAM</a></li>
+</ul>
+ </div>
+</li>
+<li><a href="#"><span class="fa fa-linux"></span>Мультики</a></li></ul></body></html>

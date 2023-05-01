@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ cat }}{% endblock %}
+
+{% block content %}
+<div class="sect">
+<div class="sect-header fx-row fx-middle seo-desc">
+<div class="main-sc">
+<h1 class="sect-title icon-l">
+<span class="fa">📺</span><span class="xft">Жанр - {{ cat }} | {% if type == 'film' %}Фильмы{% elif type == 'serial' %}Сериалы{% endif %}</span>
+</h1>
+</div>
+<p></p>
+</div>
+<div class="sect-items fx-in">
+<div id="dle-content">
+{% for result in results %}
+  <div class="video-item with-mask new-item" >
+  <div class="vi-in" >
+    <a class="vi-img img-resp-h" href="{{ url_for('view_content', kp_id=result.get('kinopoisk_id')) }}" title="Смотреть {{ result.get('info').get('rus') }}" >
+                        <!-- <div class="new">новый сериал</div> -->
+      <img width="376" height="375.59" class="" src="{{ result.get('info').get('poster') }}" data-src="{{ result.get('info').get('poster') }}" alt="{{ result.get('info').get('rus') }}" >
+      <div class="vi-desc" >
+        <div class="vi-title">{{ result.get('info').get('rus') }}</div>
+        
+      </div>
+      <div class="th-mask fx-col fx-center fx-middle">
+        <span class="fa">&#9654;</span>
+      </div>
+      
+      <div class="th-inf icon-l" data-source="{{ url_for('view_content', kp_id=result.get('kinopoisk_id')) }}"><span class="fa" data-tooltip="Temp">&#8505;</span></div>
+    </a>
+  </div>
+</div>
+{% endfor %}
+<!-- <div id="bottom-nav">
+<div class="bottom-nav clr ignore-select">
+<div class="pagi-nav clearfix">
+<div class="navigation">
+<span>1</span> <a href="#">2</a> <a href="#">3</a>
+</div>
+</div>
+</div>
+</div> -->
+</div>
+</div>
+</div>
+<div class="site-desc">
+<div class="site-desc-in wrap-center xfts"><h2>Новые фильмы и сериалы в жанре {{ cat }}</h2><br><p></p></div>
+</div>
+{% endblock %}
